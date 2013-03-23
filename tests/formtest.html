@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Html form test</title>
+		<style>
+			body{
+				-webkit-column-count: 2;  -webkit-column-gap: 15px; /* Chrome, Safari 3 */
+					 -moz-column-count: 2;     -moz-column-gap: 15px; /* Firefox 3.5+ */
+						  column-count: 2;          column-gap: 15px; /* Opera 11+ */
+			}
+			label{
+				display: block;
+			}
+			input:invalid,
+			select:invalid,
+			textarea:invalid{
+				background: rgba(255,0,0,.5);
+			}
+		</style>
+	</head>
+	<body>
+		<form id="testform">
+			<label for="select">
+				<span>select</span>
+				<select name="select" id="select" required>
+					<option value=""></option>
+					<option value="1">Here is an option</option>
+					<option value="2">Here is another option</option>
+				</select>
+			</label>
+			<label for="textarea">
+				<span>textarea</span>
+				<textarea name="textarea" id="textarea" required></textarea>
+			</label>
+			<label for="password">
+				<span>password</span>
+				<input type="password" name="password" id="password" required>
+			</label>
+			<label for="text">
+				<span>text</span>
+				<input type="text" name="text" id="text" required>
+			</label>
+			<label for="tel">
+				<span>tel</span>
+				<input type="tel" name="tel" id="tel" required>
+			</label>
+			<label for="search">
+				<span>search</span>
+				<input type="search" name="search" id="search" required>
+			</label>
+			<label for="url">
+				<span>url</span>
+				<input type="url" name="url" id="url" required>
+			</label>
+			<label for="email">
+				<span>email</span>
+				<input type="email" name="email" id="email" required>
+			</label>
+			<label for="datetime">
+				<span>datetime</span>
+				<input type="datetime" name="datetime" id="datetime" required>
+			</label>
+			<label for="date">
+				<span>date</span>
+				<input type="date" name="date" id="date" required>
+			</label>
+			<label for="month">
+				<span>month</span>
+				<input type="month" name="month" id="month" required>
+			</label>
+			<label for="week">
+				<span>week</span>
+				<input type="week" name="week" id="week" required>
+			</label>
+			<label for="time">
+				<span>time</span>
+				<input type="time" name="time" id="time" required>
+			</label>
+			<label for="datetime-local">
+				<span>datetime-local</span>
+				<input type="datetime-local" name="datetimelocal" id="datetimelocal" required>
+			</label>
+			<label for="numberminmax">
+				<span>numberminmax</span>
+				<input type="number" name="numberminmax" id="numberminmax" min="0" max="100" required>
+			</label>
+			<label for="numbermax">
+				<span>numbermax</span>
+				<input type="number" name="numbermax" id="numbermax" max="10" required>
+			</label>
+			<label for="numbermin">
+				<span>numbermin</span>
+				<input type="number" name="numbermin" id="numbermin" min="0" required>
+			</label>
+			<label for="number">
+				<span>number</span>
+				<input type="number" name="number" id="number" required>
+			</label>
+			<label for="range">
+				<span>range</span>
+				<input type="range" name="range" id="range"><!-- required not allowed -->
+			</label>
+			<label for="color">
+				<span>color</span>
+				<input type="color" name="color" id="color"><!-- required not allowed -->
+
+			</label>
+			<label for="checkbox">
+				<span>checkbox</span>
+				<input type="checkbox" name="checkbox" id="checkbox" required>
+			</label>
+			<label for="radio">
+				<span>radio</span>
+				<input type="radio" name="radio" id="radio" required>
+			</label>
+		</form>
+
+		<h2> Todo </h2>
+		<dl>
+
+			<dt> min </dt>
+			<dd> All date/time inputs allow a min attribute. </dd>
+
+			<dt> max </dt>
+			<dd> All date/time inputs allow a max attribute. </dd>
+
+			<dt> step </dt>
+			<dd> All date/time inputs allow a step attribute. </dd>
+
+			<dt> pattern </dt>
+			<dd> For validating an element's value against a regular expression.	When using a pattern, you should also specify a title value to give the user a description of the pattern that's expected. </dd>
+
+		</dl>
+
+		<a class="button" href="http://www.w3.org/TR/html5/forms.html#date-state-(type=date)">W3 Forms Spec</a>
+
+		<script src="web-developer/source/common/javascript/features/forms.js"></script>
+		<script>
+			var WebDeveloper = WebDeveloper || {};
+
+			WebDeveloper.Common = WebDeveloper.Common || {};
+			WebDeveloper.Common.displayNotification = WebDeveloper.Common.displayNotification || function(msg, fields){
+				console.log(msg, fields);
+			}
+
+			var button = document.createElement('button');
+			button.innerHTML = 'Populate Form Fields';
+			testform.appendChild(button);
+			button.onclick = function(){
+				WebDeveloper.Forms.populateFormFields([document], 'exmaple@exmaple.com', 'password')
+
+				return false;
+			};
+
+		</script>
+	</body>
+</html>
